@@ -11,5 +11,8 @@ describe("Documents",()=>{
         ifr.type("Hi everyone good morning")
         cy.get(':nth-child(9) > .detailedViewHeader > b').scrollIntoView()
         cy.get('#filename_I__').selectFile("C:/Users/user/Desktop/interview Questions.docx")
+        cy.get(':nth-child(1) > td > div > .save').click()
+        cy.get('[src="themes/softed/images/user.PNG"]').trigger('mouseover')
+        cy.contains('Sign Out').click() 
     })
 })
