@@ -1,4 +1,4 @@
-import LoginPage from './pageobject/loginPage.js'
+import LoginPage from './pageobject/loginPage'
 
 describe("Contact",()=>{
     it("CreateContactWithOrganization",()=>{
