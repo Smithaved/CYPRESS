@@ -1,5 +1,4 @@
 import LoginPage from './pageobject/loginPage'
-
 describe("Contact",()=>{
     it("CreateContactWithOrganization",()=>{
         const lg=new LoginPage()

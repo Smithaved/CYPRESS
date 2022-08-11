@@ -15,7 +15,6 @@ class LoginPage{
         passwordfield.type(password)
         return this
     }
-    
     submit()
     {
         const submit=cy.get('[id=submitButton]')
