@@ -15,6 +15,10 @@ Cypress.Commands.add('login', (username, password) => {
     cy.get(':nth-child(5) > input').type(password)
     cy.get('#submitButton').click()
  })
+ Cypress.Commands.add('parseXlsx', (inputFile) => { 
+    return cy.task('parseXlsx',{filePath:inputFile})
+ })
+
 //
 //
 // -- This is a child command --

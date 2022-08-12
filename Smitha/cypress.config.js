@@ -1,17 +1,24 @@
 const { defineConfig } = require("cypress");
-const excel=require("xlsx");
+const xlsx=require("xlsx");
+const fs=require("fs")
 
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
-      on('task',{
-        generateJsonFromExcel(arg1,arg2){
-      const wb=excel.readFile(arg1,{dateNF:"mm/dd/yyyy"})
-      const ws=wb.Sheets[arg2]
-      return excel.utils.sheet_to_json(ws,{raw:false})
-    }
-    })   
+      on("task",{
+        parseXlsx({filePath}){
+          return new Promise((resolve, reject) => {
+        let contents = xlsx.parse(fs.readFileSync(filePath));
+        if(contents == "undefined") {
+          reject("File contains no contents");
+        } else {
+            let jsonData = JSON.parse(contents);
+            resolve(jsonData);
+        }
+      })  
+        }
+      }) 
     
       
     },
